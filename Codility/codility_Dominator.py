@@ -43,9 +43,13 @@ def solution(A):
     #     return A.index(candidate)
     # else:
     #     return -1
+    if len(A) == 0:
+        return -1
+    elif len(A) == 1:
+        return 0
     sorted_A = sorted(A)
     c = 0
-    for idx in range(len(sorted_A)):
+    for idx in range(len(sorted_A) - 1):
         if sorted_A[idx] != sorted_A[idx + 1]:
             c = 1
         else:
@@ -56,5 +60,6 @@ def solution(A):
 
 
 if __name__ == '__main__':
-    print(solution([10, 2, 5, 1, 8, 20]))  # 1
+    print(solution([]))  # -1
     print(solution([10, 50, 5, 1]))  # 0
+    print(solution([2, 2, 5, 1]))  # 0
